@@ -19,14 +19,14 @@
     </div>
 
     <script>
-        document.getElementById("alert").onclick = function(){
+        document.getElementById("alert").onclick = () => {
             alert("Hi!")
         }
-        document.getElementById("message-button").onclick = function(){
+        document.getElementById("message-button").onclick =()=>{
             alert(getValueFromId("message-input"));
         }
        
-        function getValueFromId(id){
+        const getValueFromId =(id)=>{
             return document.getElementById(id).value;
         }
         
