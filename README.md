@@ -1,4 +1,4 @@
-# Welcome to the MERN stack with Heidi/Max
+# Welcome to the MERN stack with Heidi
 
 ## Instructions
 1. Clone the repo to your computer

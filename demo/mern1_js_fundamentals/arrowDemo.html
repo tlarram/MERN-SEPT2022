@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Arrow Functions</title>
+</head>
+<body id="body">
+    <h1>ARROW FUNCTIONS DEMO</h1>
+
+     <button id="alert">TRY ME!</button>
+
+    <div>
+        <p> Message: 
+        <input type="text" id="message-input" /> </p>
+        <button id="message-button">Message alert</button>
+
+    </div>
+
+    <script>
+        document.getElementById("alert").onclick = function(){
+            alert("Hi!")
+        }
+        document.getElementById("message-button").onclick = function(){
+            alert(getValueFromId("message-input"));
+        }
+       
+        function getValueFromId(id){
+            return document.getElementById(id).value;
+        }
+        
+    </script>
+</body>
+</html>
+
