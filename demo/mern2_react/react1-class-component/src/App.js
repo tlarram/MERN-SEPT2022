@@ -2,10 +2,18 @@ import logo from './logo.svg';
 import './App.css';
 import VideoDetails from './components/VideoDetails';
 import CounterComponent from './components/CounterComponent';
+import VideoDetailsWithLikes from './components/VideoDetailsWithLikes';
+import StylingComponent from './components/StylingComponent';
 
 function App() {
+
   return (
-    <div>
+    <div className='container mt-5'>
+      <StylingComponent newBackgroundColor = "black"/>
+
+
+
+      {/* 
       <h1> Counter Test (State)</h1>
       <CounterComponent /> 
       <CounterComponent /> 
@@ -24,13 +32,8 @@ function App() {
         description="It's a funny MV"
         rating={15}  
         hashtags = {["some hate it", "Christmas"]}
-        />
-      <VideoDetails 
-        title="MERN belt review" 
-        description="It's super helpful"
-        rating={100}  
-        hashtags = {["exam", "React", "JS"]}
-        />
+        /> */}
+
     </div>
   );
 }
