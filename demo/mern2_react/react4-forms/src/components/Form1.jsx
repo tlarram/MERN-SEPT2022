@@ -30,7 +30,7 @@ const Form1 = () => {
                 </div>
                 <div>
                     <label>Password: </label>
-                    <input type="text" name="password" value={password} onChange={(e)=> setPassword(e.target.value)}  />
+                    <input type="password" name="password" value={password} onChange={(e)=> setPassword(e.target.value)}  />
                 </div>
                 <input type="submit" value="Create User" />
             </form>
