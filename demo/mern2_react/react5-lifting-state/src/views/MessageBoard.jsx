@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import MessageDisplay from '../components/messageBoard/MessageDisplay'
 import MessageForm from '../components/messageBoard/MessageForm'
-import MessageObjectDisplay from '../components/messageBoard/MessageObjectDisplay';
+
 
 const MessageBoard = () => {
     // showing only 1 message
