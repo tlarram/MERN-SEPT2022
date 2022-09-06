@@ -1,9 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import DisplayPoke from '../components/DisplayPoke'
 import axios from "axios"
+import DisplayOnLoad from '../components/DisplayOnLoad'
 
 const FetchDemo = () => {
     const [pokemon, setPokemon] = useState()
+
 
     const fetchPokemonWithThen = () =>{
         fetch(`https://pokeapi.co/api/v2/pokemon/ditto`)
@@ -28,7 +30,7 @@ const FetchDemo = () => {
     const fetchPokemonWithAxios =() =>{
         axios.get(`https://pokeapi.co/api/v2/pokemon/snorlax`)
             .then(response => {
-                console.log(response.data)
+                console.log(response)
                 setPokemon(response.data)
             })
             .catch()
@@ -46,10 +48,9 @@ const FetchDemo = () => {
             <button onClick={fetchPokemonWithAwait}> Fetch with async/await</button>
             <button onClick={fetchPokemonWithAxios}> Fetch with axios</button>
             <button onClick={fetchPokemonWithAxiosAsync}> Fetch with axios</button>
+
             {
-                pokemon? //check if the pokemon has anything. undefine/null --> false
-                <DisplayPoke pokemon ={pokemon}/>:
-                <h1> Fetch a pokemon</h1>
+                <DisplayOnLoad />
             }
            
         </div>
