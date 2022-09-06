@@ -36,6 +36,7 @@ const IcecreamDisplay = (props) => {
                                     <td> {eachIcecream.quantity} </td>
                                     <td> {eachIcecream.hasChocolateChip ? "Yes" : "No"} </td>
                                     <td> {eachIcecream.isServed ? "Yes" : "No"} </td>
+                                    
                                     <td>
                                         <input type="checkbox" checked={eachIcecream.isServed} 
                                             onChange={(e)=>handleCheckbox(e, i)} />
