@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios"
+import { useParams } from 'react-router-dom';
 
 const DisplayOnLoad = () => {
     const [pokemon, setPokemon] = useState();
-
+    const {pokemonNameFromParams} = useParams()
 
     useEffect(() => {
-
-        // .get -> read, .post -> creat, .put -> update, .delete -> delete
-        axios.get(`https://pokeapi.co/api/v2/pokemon/mew`)
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonNameFromParams}`)
             .then(response => {
-                console.log("calling API")
                 setPokemon(response.data)
             })
             .catch()
-    }, [])
+    }, [pokemonNameFromParams])
 
     return (
 
