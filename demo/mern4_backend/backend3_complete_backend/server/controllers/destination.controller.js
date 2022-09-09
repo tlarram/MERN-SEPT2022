@@ -1,4 +1,9 @@
+// option 1: exporting the whole file
 const Destination = require("./../models/destination.model")
+
+// option 2: exporting the whole file as an object, with key/value pair
+// const {Destination} = require("./../models/destination.model")
+
 
 module.exports.testApi = (req, res) => {
     res.json({ Status: "ok" })

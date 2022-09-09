@@ -24,4 +24,9 @@ const DestinationSchema = new mongoose.Schema({
  
 const Destination = mongoose.model('Destination', DestinationSchema);
  
+// option 1: export the whole file as Destination model
 module.exports = Destination;
+
+// option 2: export the whole file as an object, with Destination as the key/value
+// module.exports = {Destination: Destination}
+// module.exports.Destination = mongoose.model('Destination', DestinationSchema);
