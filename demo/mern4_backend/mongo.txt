@@ -1,0 +1,28 @@
+db.item.insertMany([
+    {name: "Toaster", price: 39, size:{length: 1, height: 1}},
+    {name: "Electric Kettle", price: 29, size:{length: 10, height: 10}}
+])
+
+db.item.find({price: {$lt: 100}  })
+
+db.item.find({$and: [
+   {price: {$lt: 100}},
+    {price: {$gt: 10}}
+]})
+
+db.item.findOne({$and: [
+   {price: {$lt: 100}},
+    {price: {$gt: 10}}
+]})
+
+
+db.item.updateMany(
+    {}, 
+    {$push: {shops: 'craigslist'}}
+)
+
+db.item.updateMany(
+    {}, 
+    {$pull: {shops: 'craigslist'}})
+
+db.item.updateMany({}, {$inc: {price: 1}})

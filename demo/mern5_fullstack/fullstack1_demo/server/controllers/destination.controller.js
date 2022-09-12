@@ -6,7 +6,7 @@ const Destination = require("./../models/destination.model")
 
 
 module.exports.testApi = (req, res) => {
-    res.json({ Status: "ok" })
+    res.json({ Status: "ok", message: "message from backend" })
 }
 
 
@@ -27,7 +27,6 @@ module.exports.oneDest = (req, res) => {
 
 // create
 module.exports.addDest = (req, res) => {
-
     const newDest = req.body
     Destination.create(newDest)
         .then(dest => res.json(dest))
