@@ -9,6 +9,7 @@ import DestinationTable from '../components/DestinationTable'
 const DashboardPage = () => {
   const [destinations, setDestinations] = useState()
 
+
   useEffect(()=>{
     axios.get(`http://localhost:8000/api/destinations`)
       .then(response=>{
@@ -17,12 +18,19 @@ const DashboardPage = () => {
       .catch(err=>console.log(err))
   },[])
 
+  const filterList = (deleteId) =>{
+    const updatedList = destinations.filter(
+      (eachDest)=>deleteId!== eachDest._id)
+    setDestinations(updatedList)
+  }
+
   return (
     <div>
       <h1> Dashboard table</h1>
       {
         destinations?
-        <DestinationTable destinations={destinations}/>:
+        <DestinationTable destinations={destinations} 
+          onDelete={filterList}/>:
         <h1> No destinations available</h1>
       }
     </div>

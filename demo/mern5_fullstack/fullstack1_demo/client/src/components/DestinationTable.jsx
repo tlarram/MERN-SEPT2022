@@ -1,9 +1,17 @@
 import React from 'react'
-
+import { Link, useNavigate } from 'react-router-dom'
+import axios from "axios"
 
 const DestinationTable = (props) => {
+    const navigate = useNavigate()
 
-
+    const handleDelete = (deleteId)=>{
+        axios.delete(`http://localhost:8000/api/destinations/${deleteId}`)
+            .then(response=>{
+                props.onDelete(deleteId)
+            })
+            .catch(err=>console.log(err))
+    }
     return (
         <table>
             <thead>
@@ -11,6 +19,7 @@ const DestinationTable = (props) => {
                     <th> Location</th>
                     <th> Rating</th>
                     <th> Season</th>
+                    <th> Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -18,9 +27,11 @@ const DestinationTable = (props) => {
                     props.destinations.map((eachDest, i)=>{
                         return(
                             <tr key={i}>
-                                <td> {eachDest.location}</td>
+                                <td> <Link to={`/destinations/${eachDest._id}`}>{eachDest.location}</Link></td>
                                 <td> {eachDest.rating}</td>
                                 <td> {eachDest.season}</td>
+                                <td> <Link to={`/destinations/edit/${eachDest._id}`}>Edit</Link></td>
+                                <td> <button onClick={()=>handleDelete(eachDest._id)}> Delete</button></td>
                             </tr>
                         )
                     })
