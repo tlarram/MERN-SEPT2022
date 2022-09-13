@@ -1,7 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
 import { Routes, Route, Link } from 'react-router-dom';
-
 import DashboardPage from './views/DashboardPage';
 import DetailsPage from './views/DetailsPage';
 import UpdatePage from './views/UpdatePage';

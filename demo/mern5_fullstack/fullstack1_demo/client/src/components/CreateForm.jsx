@@ -7,22 +7,34 @@ import { useNavigate } from 'react-router-dom'
 // send formData into api : axios
 // logic after create : redirect to dashboard (navigate)
 
-const CreateForm = () => {
+const CreateForm = (props) => {
     const navigate = useNavigate()
     const [location, setLocation] = useState("")
     const [rating, setRating] = useState(10)
     const [image, setImage] = useState("")
     const [season, setSeason] = useState("")
+    const [errors, setErrors] = useState([])
 
     const handleSubmit =(e)=>{
         e.preventDefault()
         // send formData into API, if successful, redirect
-        axios.post(`http://localhost:8000/api/destinations`, {location, rating, image, season})
+        axios.post(`http://localhost:8000/api/destinations`, 
+        {location, rating, image, season})
             .then(response=>{
-                console.log(response)
-                navigate('/destinations')
+                console.log(response.data) 
+                // the object of the newly created dest
+                navigate(`/destinations`)
+
             })
-            .catch(err=>console.log(err))
+            .catch(err=>{
+                const errorResponseDataErrors = err.response.data.errors
+                console.log(errorResponseDataErrors)
+                const errMsgArr =[]
+                for(const eachKey in errorResponseDataErrors){
+                    errMsgArr.push(errorResponseDataErrors[eachKey].message)
+                }
+                setErrors(errMsgArr)
+            })
     }
 
 
@@ -56,7 +68,11 @@ const CreateForm = () => {
                 </div>
                 <button type="submit"> Add a destination</button>
             </form>
-
+            {
+                errors.map((eachErr, i)=>(
+                    <p style={{color: "red"}}> {eachErr}</p>
+                ))
+            }
         </div>
     )
 }

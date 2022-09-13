@@ -24,6 +24,7 @@ const DashboardPage = () => {
     setDestinations(updatedList)
   }
 
+
   return (
     <div>
       <h1> Dashboard table</h1>

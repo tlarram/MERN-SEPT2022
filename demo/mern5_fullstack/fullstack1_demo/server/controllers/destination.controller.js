@@ -30,7 +30,7 @@ module.exports.addDest = (req, res) => {
     const newDest = req.body
     Destination.create(newDest)
         .then(dest => res.json(dest))
-        .catch(err => res.json(err))
+        .catch(err => res.status(400).json(err))
 }
 
 
@@ -47,7 +47,7 @@ module.exports.updateDest = (req, res) => {
         // runValidation --> to run validations
     )
         .then(updatedDest => res.json(updatedDest))
-        .catch(err => res.json(err))
+        .catch(err => res.status(400).json(err))
 
 
 }
@@ -56,5 +56,5 @@ module.exports.updateDest = (req, res) => {
 module.exports.deleteDest = (req, res) => {
     Destination.findOneAndDelete({ _id: req.params.id })
         .then(deletedDest => res.json(deletedDest))
-        .catch(err => res.json(err))
+        .catch(err => res.status(400).json(err))
 }
