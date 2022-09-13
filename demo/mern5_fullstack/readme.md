@@ -19,11 +19,11 @@
 2. DO NOT communicate with your cohort during the exam
 
 ## Asking for help
-1. Ask for help in discord channel (ping me & Christian & Winter)
+1. Ask for help in discord channel (ping me & Joe)
 
 ## Getting Graded
 1. Have your red belt features graded first
-2. In discord channel (ping me & Christian)
+2. In discord channel (ping me & Joe)
 
 ## RED BELT
 1. FULL CRUD - Create, Update, Get all, Get one, Delete
